@@ -11,8 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.myapp{
+    background-color: grey;
+}
 .mynavbar {
-  background-color:orangered ;
-  color:white
+  background-color:black ;
+  color:white;
+  text-align: center;
+  
 }
