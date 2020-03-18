@@ -1,4 +1,4 @@
-#To run this follow the given steps
+# To run this follow the given steps
 
 1.cd to root directory in terminal run
 
