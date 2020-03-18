@@ -16,7 +16,7 @@ to download react dependencies
 
 `npm install`
 
-`npm install musql cors express`
+`npm install mysql cors express`
 
 to download dependencies
 
