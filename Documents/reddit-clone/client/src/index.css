@@ -17,6 +17,9 @@ code {
 .mynavbar {
   background-color:black ;
   color:white;
-  text-align: center;
-  
+  text-align: left;
+  font-size: 300%;
+}
+.Myform{
+  padding: 10px 20px 30px 10px;
 }

@@ -3,7 +3,7 @@ import { Form,Button } from 'react-bootstrap';
 class LoginForm extends Component{
     render(){
         return(
-          <Form>
+          <Form className="Myform">
             <Form.Group >
               <Form.Label>
                 UserName
@@ -16,6 +16,20 @@ class LoginForm extends Component{
                 FirstName
               </Form.Label>
               <Form.Control type="text" placeholder="Firstname" />
+            </Form.Group>
+
+            <Form.Group >
+              <Form.Label>
+                LastName
+              </Form.Label>
+              <Form.Control type="text" placeholder="Lastname" />
+            </Form.Group>
+
+            <Form.Group >
+              <Form.Label>
+                Age
+              </Form.Label>
+              <Form.Control type="text" placeholder="Age" />
             </Form.Group>
   
             <Button variant="primary" type="submit">
