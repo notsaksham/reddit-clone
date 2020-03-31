@@ -5,7 +5,7 @@ const mysql = require('mysql');
 
 const app = express();
 
-const SHOW_USERS = 'select * from user';
+const RENDER = 'select * from post';
 
 const connection = mysql.createConnection({
     host:'localhost',
@@ -21,20 +21,20 @@ connection.connect(function(err){
 app.use(cors());
 
 app.get('/',function(req,res){
-    connection.query(SHOW_USERS,function(err,data){
-        (err)?res.send(err):res.json({users:data});
+    connection.query(RENDER,function(err,data){
+        (err)?res.send(err):res.json({posts:data});
     });
 });
 
 app.get('/users/add',(req,res)=>{
-    const {username,first,last,age} = req.query;
-    const INSERT = "insert into user(Name,First,Last,Age) values ('"+ username+"','"+ first + "','" +last +"',"+age+");";
+    const {title,content,author} = req.query;
+    const INSERT = "insert into post(post_title,post_content,author) values('"+ title+"','"+ content + "','" +author+"');";
     connection.query(INSERT,(err,results) => {
         if(err){
             return(res.send(err))
         }
         else{
-            return(res.send('Added user'))
+            return(res.send('Added post'))
         }
     })
 })
