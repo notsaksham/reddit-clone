@@ -1,13 +1,21 @@
 import React, { Component } from "react";
-import { Navbar} from 'react-bootstrap';
+import {Link,withRouter} from 'react-router-dom';
+import { Navbar,Button} from 'react-bootstrap';
+
 class NavBar extends Component {
+  
+  OnLogin = () => {
+    return(this.props.history.push('/login'));
+  }
+
   render() {
     return (
       <Navbar className = "mynavbar">
-        Reddit Clone
+        <Link to='/'>Reddit Clone</Link>
+        <Button onClick={this.OnLogin} className="Login">Log in</Button>
       </Navbar>
     );
   }
 }
  
-export default NavBar;
+export default withRouter(NavBar);

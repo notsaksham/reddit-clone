@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
 import { Form,Button } from 'react-bootstrap';
+
+
 class LoginForm extends Component{
-    
-  constructor(){
+   constructor(){
     super();
     this.state={
       user:{
@@ -10,9 +11,9 @@ class LoginForm extends Component{
         Firstname:'Firstname',
         Lastname:'Lastname',
         Age:20
+      }
     }
   }
-}
   
   render(){
         return(
