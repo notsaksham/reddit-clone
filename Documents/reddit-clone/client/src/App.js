@@ -40,7 +40,7 @@ class App extends Component {
 
 
   renderPost  = ({post_id,post_title,post_content,author,upvote,downvote}) =>
-  <div className="outerboxpadding">
+  <div className="outerbox">
     {/* <br /> */}
     <div key = {post_id} className = "boxed">
       <br />
@@ -70,7 +70,9 @@ class App extends Component {
       <div  >
          <NavBar />
         {/* <LoginForm />   */}
-        {post.map(this.renderPost)}
+        <div>
+          {post.map(this.renderPost)}
+        </div>
       </div>
     );
   }

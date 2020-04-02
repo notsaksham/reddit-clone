@@ -15,25 +15,28 @@ code {
     background-color: grey;
 }
 .mynavbar {
-  background-color:black ;
+  background-color:#343A40;
   color:white;
   text-align: left;
   font-size: 300%;
+  border:10px solid whitesmoke;
 }
 .Myform{
   padding: 10px 20px 30px 10px;
 }
 
 .boxed{
-  color:white;
+  color:black;
   border: 1px solid black ;
   padding: 10px 20px 30px 10px;
+  background-color: #E9ECEF;
 }
-.outerboxpadding{
+.outerbox{
   padding: 0px 20px 30px 10px;
+  
 }
 .author{
-  color:white;
+  color:black;
   font-size: x-small;
 }
 
