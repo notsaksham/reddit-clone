@@ -22,7 +22,7 @@ class Home extends Component {
   }
 
   getPost = _ =>{
-    fetch('http://localhost:4000')
+    fetch('http://localhost:4000/posts')
       .then(response => response.json())
       .then(response =>this.setState({posts:response.posts}))
       .catch(err => console.error(err)) 

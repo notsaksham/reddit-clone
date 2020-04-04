@@ -58,3 +58,20 @@ code {
   margin-right: 20px;
   margin-top:10px;
 }
+
+.Header{
+  background-color: #E9ECEF;
+  font-size:16px;
+  height:140 px;
+  width:1351px;
+  margin: 0px 0px 15px 0px;
+  border-bottom: 1px solid #CED4DA;
+  padding:32px 32px 32px 32px; 
+  text-align: center;
+  font-size: 70px;
+}
+
+.login-box{
+  padding-right:575px;
+  padding-left:575px;
+}
