@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 
-class LoginForm extends Component{
+class SignUp extends Component{
    constructor(){
     super();
     this.state={
@@ -28,29 +28,19 @@ class LoginForm extends Component{
   }
 
   onSubmit = (e) =>{
-
-    e.preventDefault();
-    // console.log(JSON.stringify(this.state));
-    fetch('http://localhost:4000/login',{
-      method:"POST",
-      headers: {
-        Accept: 'application/json','Content-Type': 'application/json',
-    },
-      body : JSON.stringify(this.state)
-    })
-    .then(response =>{
-      console.log(response);
-      if (response.status === 200){
-          alert('Login Successful');
-          this.props.history.push("http://localhost:3000/home");
-      }
-      else if(response.status === 201){
-        alert ('Incorrect Details Login Unsucessful');
-      }
-    })
-    .catch(error =>{
-      console.log(error);
-    })
+    e.preventDefault(); 
+    fetch(`http://localhost:4000/users/add?username=${this.state.Username}&password=${this.state.Password}`)
+    .then(res => {
+        console.log(res);
+        if(res.status === 200 ){
+            alert("New login created");
+            this.props.history.push("http://localhost:3000/home");
+        }
+        else if(res.status === 201){
+            alert("Failed to create user");
+        }
+    })  
+    .catch(err => console.log(err))
   }
 
   render(){
@@ -73,4 +63,4 @@ class LoginForm extends Component{
     }
 }
 
-export default LoginForm; 
+export default SignUp; 

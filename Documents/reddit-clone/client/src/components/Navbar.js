@@ -8,11 +8,16 @@ class NavBar extends Component {
     return(this.props.history.push('/login'));
   }
 
+  OnSignup = () =>{
+    return(this.props.history.push('/signup'));
+  }
+
   render() {
     return (
       <Navbar className = "mynavbar">
         <Link to='/'>Reddit Clone</Link>
         <Button onClick={this.OnLogin} className="Login">Log in</Button>
+        <Button onClick={this.OnSignup} className="Login">Sign Up</Button>
       </Navbar>
     );
   }
