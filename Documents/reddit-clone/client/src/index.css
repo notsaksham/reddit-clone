@@ -14,13 +14,16 @@ code {
 .myapp{
     background-color: grey;
 }
-.mynavbar {
+.navbar{
   background-color:#343A40;
   color:white;
   text-align: left;
   font-size: 300%;
   border:10px solid whitesmoke;
 }
+
+
+
 .Myform{
   padding: 10px 20px 30px 10px;
 }
@@ -75,3 +78,31 @@ code {
   padding-right:575px;
   padding-left:575px;
 }
+
+.navbar-brand{
+  color:white;
+  font-size:20px;
+  line-height:30px;
+}
+
+/* for the home link start */
+a {
+  color: white;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: white;
+}
+/* end */

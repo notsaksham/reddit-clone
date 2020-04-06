@@ -6,17 +6,48 @@ import NavBar from './components/Navbar';
 import LoginForm from './components/form';
 import Header from './components/Header';
 import SignUp from './components/Signup';
+import Post from './components/Post';
+
 class App extends Component {
-    render() {
+  
+  constructor(){
+    super();
+    this.state = {
+      isLoggedIn : false,
+      loggedUser : "",
+      headertext : "Home"
+    }
+    this.mutatestate = this.mutatestate.bind(this);
+  }
+  
+  componentDidMount(){
+    console.log(this.state);
+  }
+
+  componentDidUpdate(){
+    console.log(this.state);
+  }
+  
+  mutatestate = (value) =>{
+    this.setState({
+        isLoggedIn:value.isLoggedIn,
+        loggedUser:value.loggedUser,
+        headertext:value.headertext
+    })
+  }
+
+
+  render() {
       return (      
-        <div >
+        <div>
          <BrowserRouter> 
-          <NavBar />
-          <Header />
+          <NavBar value = {this.state}/>
+          <Header value ={this.state}/>
           <Switch>
-            <Route path="/" component={Home} exact/>
-            <Route path="/login" component={LoginForm} />
-            <Route path = "/signup" component={SignUp} />
+            <Route path="/" component={Home} exact value= {this.state}/>
+            <Route path="/login"  component={() => (<LoginForm  value={this.state} mutateState={this.mutatestate}/>)}/>
+            <Route path = "/signup" exact  component ={SignUp} value ={this.state}/>
+            <Route path = "/post" component={Post} value={this.state}/>
           </Switch>
         </BrowserRouter>
         </div>
@@ -24,4 +55,4 @@ class App extends Component {
     }
   }
    
-  export default App;
+  export default App

@@ -13,6 +13,10 @@ class SignUp extends Component{
     this.handlepass = this.handlepass.bind(this);
   }
 
+  componentDidMount(){
+    console.log(this.props.value)
+  }
+
   handlepass = (e) =>{
     this.setState(
       {
@@ -34,7 +38,7 @@ class SignUp extends Component{
         console.log(res);
         if(res.status === 200 ){
             alert("New login created");
-            this.props.history.push("http://localhost:3000/home");
+            this.props.history.push("/");
         }
         else if(res.status === 201){
             alert("Failed to create user");

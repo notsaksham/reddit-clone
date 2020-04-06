@@ -6,14 +6,7 @@ class Home extends Component {
   constructor(){
     super();
     this.state  ={
-      posts:[],
-      users:[],
-      user:{
-        Username:'Sample',
-        Firstname:'Sample',
-        Lastname:'Sample',
-        Age:20
-      }
+      posts:[]
     };
   }
 
@@ -35,7 +28,6 @@ class Home extends Component {
 
   renderPost  = ({post_id,post_title,post_content,author,upvote,downvote}) =>
   <div className="outerbox">
-    {/* <br /> */}
     <div key = {post_id} className = "boxed">
       <br />
       <div>
@@ -53,7 +45,6 @@ class Home extends Component {
         <button className = "votebutton">Downvotes:</button>{downvote}
       </div>
     </div>
-    {/* <br /> */}
   </div>
   
   render() {

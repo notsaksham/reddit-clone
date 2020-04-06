@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
-
-
+import {withRouter} from 'react-router-dom'
 class LoginForm extends Component{
    constructor(){
     super();
@@ -11,6 +10,11 @@ class LoginForm extends Component{
     this.onSubmit = this.onSubmit.bind(this);
     this.handleuser = this.handleuser.bind(this);
     this.handlepass = this.handlepass.bind(this);
+    this.onlogin = this.onlogin.bind(this);
+  }
+
+  componentDidMount(){
+    console.log(this.props.value)
   }
 
   handlepass = (e) =>{
@@ -27,6 +31,16 @@ class LoginForm extends Component{
     );
   }
 
+  onlogin = () =>{
+    const value={
+      isLoggedIn : true,
+      loggedUser : this.state.Username,
+      headertext:"Home"
+    }
+    this.props.mutateState(value);
+  }
+
+
   onSubmit = (e) =>{
 
     e.preventDefault();
@@ -41,8 +55,9 @@ class LoginForm extends Component{
     .then(response =>{
       console.log(response);
       if (response.status === 200){
-          alert('Login Successful');
-          this.props.history.push("http://localhost:3000/home");
+          alert('Login Successful ');
+          this.onlogin();
+          this.props.history.push("/");
       }
       else if(response.status === 201){
         alert ('Incorrect Details Login Unsucessful');
@@ -57,7 +72,7 @@ class LoginForm extends Component{
         return(
         <form className="login-box" >
           <div >
-            <label htmlFor="username">Username</label>
+        <label htmlFor="username">Username</label>
             <input  className="form-control" type="text" name="username"  value = {this.state.Username} onChange={this.handleuser}/>
           </div>
 
@@ -73,4 +88,4 @@ class LoginForm extends Component{
     }
 }
 
-export default LoginForm; 
+export default withRouter(LoginForm); 
