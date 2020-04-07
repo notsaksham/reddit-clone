@@ -1,5 +1,9 @@
 import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom'
+
+
+import Header from './Header';
+
 class LoginForm extends Component{
    constructor(){
     super();
@@ -69,21 +73,24 @@ class LoginForm extends Component{
   }
 
   render(){
+    var head = "Log In";
         return(
-        <form className="login-box" >
-          <div >
-        <label htmlFor="username">Username</label>
-            <input  className="form-control" type="text" name="username"  value = {this.state.Username} onChange={this.handleuser}/>
-          </div>
+        <div>
+          <Header value ={head}/>
+          <form className="login-box" >
+            <div >
+          <label htmlFor="username">Username</label>
+              <input  className="form-control" type="text" name="username"  value = {this.state.Username} onChange={this.handleuser}/>
+            </div>
 
-          <div>
-            <label htmlFor = "password">Password</label>
-            <input className="form-control" type="text" name="password"  value = {this.state.Password} onChange={this.handlepass}/>
-          </div>   
+            <div>
+              <label htmlFor = "password">Password</label>
+              <input className="form-control" type="text" name="password"  value = {this.state.Password} onChange={this.handlepass}/>
+            </div>   
 
-          <button type="submit" onClick ={this.onSubmit}>Submit</button>
-        </form>
-
+            <button type="submit" onClick ={this.onSubmit}>Submit</button>
+          </form>
+        </div>
       );
     }
 }

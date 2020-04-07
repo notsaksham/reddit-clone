@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 
+import Header from './Header';
 
 class SignUp extends Component{
    constructor(){
@@ -48,21 +49,26 @@ class SignUp extends Component{
   }
 
   render(){
-        return(
-        <form className="login-box" >
-          <div >
-            <label htmlFor="username">Username</label>
-            <input  className="form-control" type="text" name="username"  value = {this.state.Username} onChange={this.handleuser}/>
-          </div>
 
-          <div>
-            <label htmlFor = "password">Password</label>
-            <input className="form-control" type="text" name="password"  value = {this.state.Password} onChange={this.handlepass}/>
-          </div>   
+        var head = "Sign Up";
 
-          <button type="submit" onClick ={this.onSubmit}>Submit</button>
-        </form>
+        return(  
+        <div>  
+          <Header value ={head}/>  
+          <form className="login-box" >
+            <div >
+              <label htmlFor="username">Username</label>
+              <input  className="form-control" type="text" name="username"  value = {this.state.Username} onChange={this.handleuser}/>
+            </div>
 
+            <div>
+              <label htmlFor = "password">Password</label>
+              <input className="form-control" type="text" name="password"  value = {this.state.Password} onChange={this.handlepass}/>
+            </div>   
+
+            <button type="submit" onClick ={this.onSubmit}>Submit</button>
+          </form>
+        </div> 
       );
     }
 }

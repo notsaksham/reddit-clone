@@ -4,7 +4,6 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Home from './components/Home';
 import NavBar from './components/Navbar';
 import LoginForm from './components/form';
-import Header from './components/Header';
 import SignUp from './components/Signup';
 import Post from './components/Post';
 
@@ -42,7 +41,6 @@ class App extends Component {
         <div>
          <BrowserRouter> 
           <NavBar value = {this.state}/>
-          <Header value ={this.state}/>
           <Switch>
             <Route path="/" component={Home} exact value= {this.state}/>
             <Route path="/login"  component={() => (<LoginForm  value={this.state} mutateState={this.mutatestate}/>)}/>

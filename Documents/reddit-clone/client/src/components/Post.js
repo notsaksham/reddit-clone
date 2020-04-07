@@ -1,12 +1,20 @@
-import React,{Component} from 'react'
+import React,{Component} from 'react';
+
+import Header from './Header';
 
 class Post extends Component{
     render(){
+
+        var head = "Create Post"
+
         return(
-            <div className = "Post">
-                <form>
-                    
-                </form>
+             <div>   
+                <Header value ={head} />
+                <div className = "Post">
+                    <form>
+                        
+                    </form>
+                </div>
             </div>
         )
     }
