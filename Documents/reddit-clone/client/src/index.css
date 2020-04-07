@@ -85,6 +85,15 @@ code {
   line-height:30px;
 }
 
+.createbutton{
+  background-color: #0069d9;
+  height: 38px;
+  width: 250px;
+  font-size:25px;
+  line-height:24px;
+  float:left;
+}
+
 /* for the home link start */
 a {
   color: white;

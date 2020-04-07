@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import Header from "./Header"
+
 class Home extends Component {
   
   constructor(){
@@ -49,8 +51,10 @@ class Home extends Component {
   
   render() {
     const post= this.state.posts;
-    return (
+    var head = "Home";
+    return (  
         <div >
+          <Header value ={head}/>
           {post.map(this.renderPost)}
         </div>
     );

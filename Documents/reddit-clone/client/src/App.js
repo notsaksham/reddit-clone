@@ -13,8 +13,7 @@ class App extends Component {
     super();
     this.state = {
       isLoggedIn : false,
-      loggedUser : "",
-      headertext : "Home"
+      loggedUser : ""
     }
     this.mutatestate = this.mutatestate.bind(this);
   }
