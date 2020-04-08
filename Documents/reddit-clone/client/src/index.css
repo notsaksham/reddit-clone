@@ -94,6 +94,10 @@ code {
   float:left;
 }
 
+.post{
+  padding:10px 20px 30px 10px;
+}
+
 /* for the home link start */
 a {
   color: white;

@@ -61,10 +61,12 @@ app.get('/posts/add',(req,res)=>{
     const CREATE_POST = "insert into post(post_title,post_content,author) values('"+post_title+"','"+ post_content +"','"+author +"');";
     connection.query(CREATE_POST,(err,results) => {
         if(err){
-            return(res.send(err))
+            res.status = 201;
+            res.end();
         }
         else{
-            return(res.send('Added post'))
+            res.status =200;
+            res.end();
         }
     })
 })

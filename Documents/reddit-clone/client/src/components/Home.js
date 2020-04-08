@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Header from "./Header"
@@ -14,6 +15,7 @@ class Home extends Component {
 
   componentDidMount(){
     this.getPost();
+    console.log(this.props.value)
   }
 
   getPost = _ =>{
@@ -27,6 +29,11 @@ class Home extends Component {
 
   // };
 
+
+  create = ()=>{
+    if(this.props.value.isLoggedIn === true){
+    this.props.history.push('/post');}
+  }
 
   renderPost  = ({post_id,post_title,post_content,author,upvote,downvote}) =>
   <div className="outerbox">
@@ -55,10 +62,11 @@ class Home extends Component {
     return (  
         <div >
           <Header value ={head}/>
+          <button onClick= {this.create}>Create Post</button>
           {post.map(this.renderPost)}
         </div>
     );
   }
 }
 
-export default Home;
+export default withRouter(Home);

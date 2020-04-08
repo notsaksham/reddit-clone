@@ -41,10 +41,10 @@ class App extends Component {
          <BrowserRouter> 
           <NavBar value = {this.state}/>
           <Switch>
-            <Route path="/" component={Home} exact value= {this.state}/>
+            <Route path="/" component={() => (<Home  value={this.state} mutateState={this.mutatestate}/>)} exact/>
             <Route path="/login"  component={() => (<LoginForm  value={this.state} mutateState={this.mutatestate}/>)}/>
-            <Route path = "/signup" exact  component ={SignUp} value ={this.state}/>
-            <Route path = "/post" component={Post} value={this.state}/>
+            <Route path = "/signup" exact  component ={() => (<SignUp  value={this.state} mutateState={this.mutatestate}/>)} />
+            <Route path = "/post" exact component={() => (<Post  value={this.state} mutateState={this.mutatestate}/>)}/>
           </Switch>
         </BrowserRouter>
         </div>
