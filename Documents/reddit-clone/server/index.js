@@ -32,6 +32,21 @@ app.get('/posts',function(req,res){
     });
 });
 
+//api to render posts from given user
+app.get('/post/:username',function(req,res){
+    const username = req.params.username;
+    console.log(username);
+    const QUERY = "select * from post where author = '"+username+"';"
+    connection.query(QUERY,(err,results)=>{
+         if(err){
+             console.log("Error occcoured");
+         }
+         else{
+             res.json({posts:results});
+         }
+     })
+})
+
 //api to render all users
 app.get('/users',function(req,res){
     connection.query(GET_USERS,function(err,data){
@@ -70,6 +85,7 @@ app.get('/posts/add',(req,res)=>{
         }
     })
 })
+
 //get apis end here
 
 

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from './components/Home';
 import NavBar from './components/Navbar';
 import LoginForm from './components/form';
 import SignUp from './components/Signup';
-import Post from './components/Post';
+import Post from './components/CreatePost';
+import Users from './components/Users'
 
 class App extends Component {
   
@@ -45,6 +47,7 @@ class App extends Component {
             <Route path="/login"  component={() => (<LoginForm  value={this.state} mutateState={this.mutatestate}/>)}/>
             <Route path = "/signup" exact  component ={() => (<SignUp  value={this.state} mutateState={this.mutatestate}/>)} />
             <Route path = "/post" exact component={() => (<Post  value={this.state} mutateState={this.mutatestate}/>)}/>
+            <Route path="/users/:username" component = {Users}/>
           </Switch>
         </BrowserRouter>
         </div>

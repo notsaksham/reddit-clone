@@ -35,7 +35,7 @@ class NavBar extends Component {
       <Navbar className = "navbar navbar-dark navbar-static-top ">
         <Link to='/'>Reddit Clone</Link> 
         <Button onClick={this.OnLogin} className="Login">{textbox1}</Button>
-    <Button onClick={this.OnSignup} className="Login">{textbox2}</Button>
+        <Button onClick={this.OnSignup} className="Login">{textbox2}</Button>
       </Navbar>
     );
   }

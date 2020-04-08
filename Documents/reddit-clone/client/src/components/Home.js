@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter,Link} from 'react-router-dom';
+import {Button} from  'react-bootstrap'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Header from "./Header"
@@ -25,15 +26,17 @@ class Home extends Component {
       .catch(err => console.error(err)) 
   }
 
-  // addUser=_ =>{
-
-  // };
-
 
   create = ()=>{
     if(this.props.value.isLoggedIn === true){
     this.props.history.push('/post');}
+    else{
+      alert("Log in first");
+      this.props.history.push("/login");
+    }
   }
+
+
 
   renderPost  = ({post_id,post_title,post_content,author,upvote,downvote}) =>
   <div className="outerbox">
@@ -44,7 +47,7 @@ class Home extends Component {
           {post_title}
         </div>
         <div className = "author">
-          Posted by {author}
+          Posted by <Button onClick={() => this.props.history.push(`/users/${author}`)}>{author}</Button>
         </div>
       </div>
       <h4>{post_content}</h4>
@@ -62,7 +65,10 @@ class Home extends Component {
     return (  
         <div >
           <Header value ={head}/>
-          <button onClick= {this.create}>Create Post</button>
+          <br />
+          <div className="outerbox">
+            <Button onClick= {this.create} className="createbutton">Create Post</Button>
+          </div>
           {post.map(this.renderPost)}
         </div>
     );

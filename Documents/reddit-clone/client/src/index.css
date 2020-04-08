@@ -86,13 +86,14 @@ code {
 }
 
 .createbutton{
-  background-color: #0069d9;
+  background-color:#286090;
+  color:white;
   height: 38px;
-  width: 250px;
+  width: 125px;
   font-size:25px;
   line-height:24px;
-  float:left;
 }
+
 
 .post{
   padding:10px 20px 30px 10px;
@@ -100,22 +101,22 @@ code {
 
 /* for the home link start */
 a {
-  color: white;
+  color: blue;
 }
 
 a:link {
-  color: white;
+  color: blue;
 }
 
 a:visited {
-  color: white;
+  color: blue;
 }
 
 a:hover {
-  color: white;
+  color: blue;
 }
 
 a:active {
-  color: white;
+  color: blue;
 }
 /* end */
