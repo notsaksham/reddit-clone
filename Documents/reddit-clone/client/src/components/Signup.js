@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {withRouter} from 'react-router-dom'
 
 import Header from './Header';
 
@@ -32,6 +33,14 @@ class SignUp extends Component{
     );
   }
 
+  onlogin = () =>{
+    const value={
+      isLoggedIn : true,
+      loggedUser : this.state.Username
+    }
+    this.props.mutateState(value);
+  }
+
   onSubmit = (e) =>{
     e.preventDefault(); 
     fetch(`http://localhost:4000/users/add?username=${this.state.Username}&password=${this.state.Password}`)
@@ -39,6 +48,7 @@ class SignUp extends Component{
         console.log(res);
         if(res.status === 200 ){
             alert("New login created");
+            this.onlogin();
             this.props.history.push("/");
         }
         else if(res.status === 201){
@@ -73,4 +83,4 @@ class SignUp extends Component{
     }
 }
 
-export default SignUp; 
+export default withRouter(SignUp); 

@@ -35,7 +35,6 @@ app.get('/posts',function(req,res){
 //api to render posts from given user
 app.get('/post/:username',function(req,res){
     const username = req.params.username;
-    console.log(username);
     const QUERY = "select * from post where author = '"+username+"';"
     connection.query(QUERY,(err,results)=>{
          if(err){

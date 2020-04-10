@@ -38,8 +38,7 @@ class LoginForm extends Component{
   onlogin = () =>{
     const value={
       isLoggedIn : true,
-      loggedUser : this.state.Username,
-      headertext:"Home"
+      loggedUser : this.state.Username
     }
     this.props.mutateState(value);
   }
