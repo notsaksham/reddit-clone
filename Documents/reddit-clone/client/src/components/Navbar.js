@@ -30,15 +30,24 @@ class NavBar extends Component {
     if (data.isLoggedIn === true){
         textbox1 = data.loggedUser;
         textbox2 = "Log Out";
-    }
+        return (
+          <Navbar className = "navbar navbar-dark navbar-static-top ">
+            <Link to='/'>Reddit Clone</Link> 
+            <Button /*onClick={this.OnLogin}*/ className="Login">{textbox1}</Button>
+            <Button /*onClick={this.OnSignup}*/ className="Login">{textbox2}</Button>
+          </Navbar>
+    );
+  }
+  else{
     return (
       <Navbar className = "navbar navbar-dark navbar-static-top ">
         <Link to='/'>Reddit Clone</Link> 
         <Button onClick={this.OnLogin} className="Login">{textbox1}</Button>
         <Button onClick={this.OnSignup} className="Login">{textbox2}</Button>
       </Navbar>
-    );
+  );
   }
+}
 }
  
 export default withRouter(NavBar);

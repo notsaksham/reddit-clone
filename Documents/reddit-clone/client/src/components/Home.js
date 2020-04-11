@@ -44,7 +44,7 @@ class Home extends Component {
       <br />
       <div>
         <div className="title">
-          {post_title}
+          <Button onClick={()=> this.props.history.push(`/posts/${post_id}`)}>{post_title}</Button>
         </div>
         <div className = "author">
           Posted by <Button onClick={() => this.props.history.push(`/users/${author}`)}>{author}</Button>

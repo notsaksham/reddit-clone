@@ -46,6 +46,20 @@ app.get('/post/:username',function(req,res){
      })
 })
 
+//api to render all details of singlepost
+app.get('/single/:postid',function(req,res){
+    const postid  = req.params.postid;
+    const QUERY= "select * from post where post_id = '"+postid+"';"
+    connection.query(QUERY,(err,results)=>{
+        if(err){
+            console.log("Error occcoured");
+        }
+        else{
+            res.json({posts:results});
+        }
+    })
+})
+
 //api to render all users
 app.get('/users',function(req,res){
     connection.query(GET_USERS,function(err,data){
