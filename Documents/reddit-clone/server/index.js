@@ -123,11 +123,12 @@ app.post("/login",(req,res)=>{
         });
     }
     else{
-        response.send('Please enter Username and Password!');
-		response.end();
+        res.send('Please enter Username and Password!');
+		res .end();
     }
 });
-//post apis end here
+
+//post api ends
 
 app.listen(4000,() =>{
     console.log("Listening at port 4000");

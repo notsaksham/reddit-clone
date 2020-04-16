@@ -1,0 +1,15 @@
+->subreddit table: create table sub_reddit(sub_id int not null auto_increment,sub_title varchar(100) not null,sub_desc varchar(1000) not null,primary key (sub_id),unique key (sub_title));
+
+->comments table:create table comments(comm_id int not null auto_increment,comm_desc varchar(1000) not null,author varchar(50),post_id int,primary key (comm_id),foreign key (author) references users(username),foreign key (post_id) references post(post_id));
+
+-> foreign key post table:alter table post add sub_id int;
+			alter table post add foreign key (sub_id) references sub_reddit(sub_id); 
+->voting table:create table votes(vote_id int not null auto_increment,author varchar(50),post_id int,vote int default 0,primary key (vote_id),foreign key (author) references users(username),foreign key (post_id) references post(post_id),unique key (author));
+
+
+
+
+1.create subreddit:"insert into sub_reddit(sub_title,sub_desc) values('"+sub_title+"','"+sub_desc+"');"
+
+2.add comment:"insert into comments(comm_desc,author,post_id) values('"+comm_desc+"','"+author+"','"+post_id+"');"
+
