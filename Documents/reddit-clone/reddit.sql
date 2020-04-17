@@ -32,7 +32,7 @@ CREATE TABLE `comments` (
   KEY `post_id` (`post_id`),
   CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`username`),
   CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+INSERT INTO `comments` VALUES (1,'This is just a test comment','saksham',2);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +74,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (2,'First','my%first%post','saksham',0,0,NULL),(3,'Second','my second post','saksham',0,0,NULL),(4,'Second','my second post','saksham',0,0,NULL),(5,'first','This is my first post through UI','okie',0,0,NULL),(6,'second','much better insertion with things done better','saksham',0,0,NULL),(7,'hello','posting through UI','saksham',0,0,NULL),(8,'s','sas','okie',0,0,NULL),(9,'testing','not sure what','neeraj',0,0,NULL),(10,'i can enter','random text','rohit',0,0,NULL),(11,'testing','multiple posts possibilites','rohit',0,0,NULL),(12,'my signup works','yes it does even with state','test',0,0,NULL),(13,'this is a post by','the new','new',0,0,NULL),(14,'xs','sdaf','notsaksham',0,0,NULL);
+INSERT INTO `post` VALUES (2,'First','my%first%post','saksham',0,0,1),(3,'Second','my second post','saksham',0,0,1),(4,'Second','my second post','saksham',0,0,1),(5,'first','This is my first post through UI','okie',0,0,1),(6,'second','much better insertion with things done better','saksham',0,0,1),(7,'hello','posting through UI','saksham',0,0,1),(8,'s','sas','okie',0,0,1),(9,'testing','not sure what','neeraj',0,0,1),(10,'i can enter','random text','rohit',0,0,1),(11,'testing','multiple posts possibilites','rohit',0,0,1),(12,'my signup works','yes it does even with state','test',0,0,1),(13,'this is a post by','the new','new',0,0,1),(14,'xs','sdaf','notsaksham',0,0,1);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +91,7 @@ CREATE TABLE `sub` (
   `sub_desc` varchar(1000) NOT NULL,
   PRIMARY KEY (`sub_id`),
   UNIQUE KEY `sub_title` (`sub_title`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,6 +100,7 @@ CREATE TABLE `sub` (
 
 LOCK TABLES `sub` WRITE;
 /*!40000 ALTER TABLE `sub` DISABLE KEYS */;
+INSERT INTO `sub` VALUES (1,'All','A place for all your reddit');
 /*!40000 ALTER TABLE `sub` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-17  4:57:44
+-- Dump completed on 2020-04-17  6:58:11
