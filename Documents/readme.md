@@ -16,28 +16,12 @@ to download react dependencies
 
 `npm install`
 
-`npm install mysql cors express`
-
 to download dependencies
 
-4.create a database called reddit in mysql with table called user with commands(this is current, it will change)
+4.import database by running the command
 
-`create database reddit;`
+`mysql -u root -p reddit < reddit.sql`
 
-`use reddit;`
-
-`create table user(Username varchar(20),First varchar(20),Last varchar(20),Age int,id int auto_increment primary key);`
-
-
-5.open file index.js in server in variable connection change
-username and password to whatever your username and password are
-Note:if you using root as user then run this additional command in mysql:
-
-
-`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';`
-
-
-replace password with your password.
 
 6.open server directory in 1 terminal run
 
