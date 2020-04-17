@@ -60,6 +60,20 @@ app.get('/single/:postid',function(req,res){
     })
 })
 
+//api to render comments of a single post
+app.get('/comment/:postid',function(req,res){
+    const postid = req.params.postid;
+    const Query = "select * from comments  where  post_id = '"+postid+"';"
+    connection.query(Query,(err,results)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.json({comment:results})
+        }
+    })
+})
+
 //api to render all users
 app.get('/users',function(req,res){
     connection.query(GET_USERS,function(err,data){

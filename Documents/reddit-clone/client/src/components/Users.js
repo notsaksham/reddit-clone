@@ -24,7 +24,6 @@ class Users extends Component{
     .then(response => response.json())
     .then(response =>this.setState({posts:response.posts}))
     .catch(err => console.error(err)) 
-
     
   }
       
@@ -54,7 +53,7 @@ class Users extends Component{
         return(
             <div>
                 <Header value ={user}/>
-                {post.map(this.renderPost)}      
+                {post.map(this.renderPost)}    
             </div>
         )
     }

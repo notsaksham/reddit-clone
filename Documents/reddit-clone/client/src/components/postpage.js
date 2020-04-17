@@ -1,18 +1,21 @@
 import React,{Component} from 'react';
 import {Button} from  'react-bootstrap'
 import Header from "./Header"
+// import { response } from 'express';
 
 class postpage extends Component{
     
     constructor(){
         super();
         this.state = {
-            posts:[]
+            posts:[],
+            comments:[]
         }
     }
 
     componentDidMount(){
         this.getPost();
+        this.getComments();
     }
 
     getPost = _ =>{
@@ -22,6 +25,14 @@ class postpage extends Component{
         .then(response =>this.setState({posts:response.posts}))
         .catch(err => console.error(err)) 
         
+      }
+
+      getComments = () =>{
+        var post = this.props.match.params.postid;  
+        fetch(`http://localhost:4000/comment/${post}`)
+        .then(response => response.json())
+        .then(response =>this.setState({comments:response.comment}))
+        .catch(err=>console.log(err))
       }
 
      /*
@@ -51,6 +62,11 @@ class postpage extends Component{
         </div>
     </div>
 
+    rendercomments =({comm_id,comm_desc,author,post_id}) =>
+    <div>
+        {comm_desc},{author}
+    </div>
+    
     callheader = ({post_id, post_title, post_content, author, upvote, downvote}) =>
         <div>
               <Header value={post_title}/>
@@ -63,10 +79,18 @@ class postpage extends Component{
 
     render(){
         var post = this.state.posts ;
+        var comment = this.state.comments;
         return(
             <div>
                 {post.map(this.callheader)}
-                {post.map(this.renderpost)}
+                <div className = "outerbox">
+                    {post.map(this.renderpost)}
+                    <br />
+                    <Button>Create Comment</Button> 
+                    <br />
+                    Comments:
+                    {comment.map(this.rendercomments)} 
+                </div>
             </div>
         )
     }
