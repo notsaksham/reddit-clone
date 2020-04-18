@@ -22,6 +22,19 @@ class NavBar extends Component {
     }
   }
 
+  onlogout = () =>{
+    const value={
+      isLoggedIn : false,
+      loggedUser : ""
+    }
+    this.props.mutateState(value);
+  }
+
+  Onuser = () => {
+    // console.log(this.props.value.loggedUser)
+      this.props.history.push(`/users/${this.props.value.loggedUser}`)
+  }
+
   render() {
 
     var textbox1 = "Log In"
@@ -33,8 +46,8 @@ class NavBar extends Component {
         return (
           <Navbar className = "navbar navbar-dark navbar-static-top ">
             <Link to='/'>Reddit Clone</Link> 
-            <Button /*onClick={this.OnLogin}*/ className="Login">{textbox1}</Button>
-            <Button /*onClick={this.OnSignup}*/ className="Login">{textbox2}</Button>
+            <Button onClick={this.Onuser} className="Login">{textbox1}</Button>
+            <Button onClick={this.onlogout} className="Login">{textbox2}</Button>
           </Navbar>
     );
   }

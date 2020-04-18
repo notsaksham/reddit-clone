@@ -44,7 +44,7 @@ class App extends Component {
       return (      
         <div>
          <BrowserRouter> 
-          <NavBar value = {this.state}/>
+          <NavBar value = {this.state}  mutateState={this.mutatestate}/>
           <Switch>
             <Route path="/" component={() => (<Home  value={this.state} mutateState={this.mutatestate}/>)} exact/>
             <Route path="/login"  component={() => (<LoginForm  value={this.state} mutateState={this.mutatestate}/>)}/>

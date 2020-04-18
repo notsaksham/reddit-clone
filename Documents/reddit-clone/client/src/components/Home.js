@@ -48,17 +48,17 @@ class Home extends Component {
       <br />
       <div>
         <div className="title">
-          <Button onClick={()=> this.props.history.push(`/posts/${post_id}`)}>{post_title}</Button>
+          <Button className = "titlebutton" onClick={()=> this.props.history.push(`/posts/${post_id}`)}>{post_title}</Button>
         </div>
         <div className = "author">
-          Posted by <Button onClick={() => this.props.history.push(`/users/${author}`)}>{author}</Button>
+          Posted by <Button  className = "authorbutton" onClick={() => this.props.history.push(`/users/${author}`)}>{author}</Button>
         </div>
       </div>
       <h4>{post_content}</h4>
       <div>
-        <button className = "votebutton">Upvotes:</button>{upvote} 
-        <br />                           
-        <button className = "votebutton">Downvotes:</button>{downvote}
+        <Button className = "votebutton">Upvotes:</Button>{upvote}  
+        <br />                          
+        <Button className = "votebutton">Downvotes:</Button>{downvote}
       </div>
     </div>
   </div>

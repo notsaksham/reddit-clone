@@ -45,6 +45,21 @@ code {
   font-size: x-small;
 }
 
+.authorbutton{
+  background: none!important;
+  border: none!important;
+  color:#0056b3!important;
+  padding:0!important
+}
+
+.titlebutton{
+  background: none!important;
+  border: none!important;
+  color:#0056b3!important;
+  padding:0!important;
+  font-size: xx-large!important;
+}
+
 .votebutton{
   color:black;
 }
