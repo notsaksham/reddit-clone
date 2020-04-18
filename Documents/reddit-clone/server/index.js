@@ -129,6 +129,21 @@ app.get('/comments/add',(req,res)=>{
     })
 })
 
+//apis to add subreddit
+app.get('/sub/add',(req,res)=>{
+    const {sub_name,sub_desc} = req.query;
+    const CREATE_COMMENT = "insert into sub(sub_title,sub_desc) values('"+sub_name+"','"+ sub_desc +"');";
+    connection.query(CREATE_COMMENT,(err,results) => {
+        if(err){
+            res.status = 201;
+            res.end();
+        }
+        else{
+            res.status =200;
+            res.end();
+        }
+    })
+})
 //get apis end here
 
 

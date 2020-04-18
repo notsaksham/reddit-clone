@@ -39,7 +39,7 @@ handlesubmit = (e) => {
             this.props.history.push(`/posts/${this.props.match.params.postid}`);
         }
         else if(res.status === 201){
-            alert("Failed to create post");
+            alert("Failed to create Comment");
         }
     })  
     .catch(err => console.log(err))
