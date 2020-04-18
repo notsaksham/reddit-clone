@@ -36,6 +36,10 @@ class Home extends Component {
     }
   }
 
+  createsub = () => {
+    this.props.history.push('/createsub');
+  }
+
 
 
   renderPost  = ({post_id,post_title,post_content,author,upvote,downvote}) =>
@@ -67,7 +71,9 @@ class Home extends Component {
           <Header value ={head}/>
           <br />
           <div className="outerbox">
-            <Button onClick= {this.create} className="createbutton">Create Post</Button>
+            <Button onClick= {this.create} className="createbutton">Create New Post</Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button onClick= {this.createsub} className="createbutton">Create New Sub</Button>
           </div>
           {post.map(this.renderPost)}
         </div>

@@ -30,7 +30,6 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`comm_id`),
   KEY `author` (`author`),
   KEY `post_id` (`post_id`),
-  CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`username`),
   CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -65,7 +64,7 @@ CREATE TABLE `post` (
   KEY `sub_id` (`sub_id`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`username`),
   CONSTRAINT `post_ibfk_2` FOREIGN KEY (`sub_id`) REFERENCES `sub` (`sub_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +73,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (2,'First','my%first%post','saksham',0,0,1),(3,'Second','my second post','saksham',0,0,1),(4,'Second','my second post','saksham',0,0,1),(5,'first','This is my first post through UI','okie',0,0,1),(6,'second','much better insertion with things done better','saksham',0,0,1),(7,'hello','posting through UI','saksham',0,0,1),(8,'s','sas','okie',0,0,1),(9,'testing','not sure what','neeraj',0,0,1),(10,'i can enter','random text','rohit',0,0,1),(11,'testing','multiple posts possibilites','rohit',0,0,1),(12,'my signup works','yes it does even with state','test',0,0,1),(13,'this is a post by','the new','new',0,0,1),(14,'xs','sdaf','notsaksham',0,0,1);
+INSERT INTO `post` VALUES (2,'First','my%first%post','saksham',0,0,1),(3,'Second','my second post','saksham',0,0,1),(4,'Second','my second post','saksham',0,0,1),(5,'first','This is my first post through UI','okie',0,0,1),(6,'second','much better insertion with things done better','saksham',0,0,1),(7,'hello','posting through UI','saksham',0,0,1),(8,'s','sas','okie',0,0,1),(9,'testing','not sure what','neeraj',0,0,1),(10,'i can enter','random text','rohit',0,0,1),(11,'testing','multiple posts possibilites','rohit',0,0,1),(12,'my signup works','yes it does even with state','test',0,0,1),(13,'this is a post by','the new','new',0,0,1),(14,'xs','sdaf','notsaksham',0,0,1),(15,'Compatibiltiy','Test for comppatibiltiy of cold with new code','saksham',0,0,NULL);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-18  8:30:50
+-- Dump completed on 2020-04-18 19:46:48

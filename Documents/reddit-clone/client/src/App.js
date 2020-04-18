@@ -10,6 +10,7 @@ import Post from './components/CreatePost';
 import Users from './components/Users';
 import Postpage from './components/postpage';
 import Createcomment from './components/Createcomment';
+import Createsub from './components/Createsub';
 
 class App extends Component {
   
@@ -52,6 +53,7 @@ class App extends Component {
             <Route path="/users/:username" component = {Users}/>
             <Route path="/posts/:postid" component={(props) =>(<Postpage {...props} value = {this.state}/>)} />
             <Route path="/createcomment/:postid" component={(props) =>(<Createcomment {...props} value = {this.state}/>)} />
+            <Route path="/createsub" component={Createsub}/>
           </Switch>
         </BrowserRouter>
         </div>
