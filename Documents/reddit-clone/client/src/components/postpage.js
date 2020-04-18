@@ -3,7 +3,7 @@ import {Button} from  'react-bootstrap'
 import Header from "./Header"
 // import { response } from 'express';
 
-class postpage extends Component{
+class Postpage extends Component{
     
     constructor(){
         super();
@@ -14,8 +14,10 @@ class postpage extends Component{
     }
 
     componentDidMount(){
+        console.log(this.props.value)
         this.getPost();
         this.getComments();
+        
     }
 
     getPost = _ =>{
@@ -25,17 +27,27 @@ class postpage extends Component{
         .then(response =>this.setState({posts:response.posts}))
         .catch(err => console.error(err)) 
         
-      }
+    }
 
-      getComments = () =>{
+    getComments = () =>{
         var post = this.props.match.params.postid;  
         fetch(`http://localhost:4000/comment/${post}`)
         .then(response => response.json())
         .then(response =>this.setState({comments:response.comment}))
         .catch(err=>console.log(err))
-      }
+    }
 
-     /*
+    create = () =>{
+        var post = this.props.match.params.postid;
+        if(this.props.value.isLoggedIn === true){
+        this.props.history.push(`/createcomment/${post}`);}
+        else{
+            alert("Log in first");
+            this.props.history.push("/login");
+        }
+    }
+    
+    /*
 
     Bhaari workaround begins here
 
@@ -63,14 +75,19 @@ class postpage extends Component{
     </div>
 
     rendercomments =({comm_id,comm_desc,author,post_id}) =>
-    <div>
-        {comm_desc},{author}
+    <div className="boxed">
+        {comm_desc}
+        <br/>
+        <div className = "comment">
+            {author}
+        </div>
     </div>
     
     callheader = ({post_id, post_title, post_content, author, upvote, downvote}) =>
-        <div>
-              <Header value={post_title}/>
-        </div>
+    <div>
+        <Header value={post_title}/>
+    </div>
+    
     /*
 
       Bhaari workaround ends here
@@ -86,7 +103,7 @@ class postpage extends Component{
                 <div className = "outerbox">
                     {post.map(this.renderpost)}
                     <br />
-                    <Button>Create Comment</Button> 
+                    <Button onClick= {this.create} className="createbutton">Create Comment</Button> 
                     <br />
                     Comments:
                     {comment.map(this.rendercomments)} 
@@ -96,4 +113,4 @@ class postpage extends Component{
     }
 }
 
-export default postpage;
+export default Postpage;

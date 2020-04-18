@@ -27,7 +27,9 @@ code {
 .Myform{
   padding: 10px 20px 30px 10px;
 }
-
+.comment{
+  color:black;
+}
 .boxed{
   color: #0056b3;
   border: 1px solid black ;

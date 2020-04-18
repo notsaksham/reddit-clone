@@ -113,6 +113,22 @@ app.get('/posts/add',(req,res)=>{
     })
 })
 
+//api to add comments
+app.get('/comments/add',(req,res)=>{
+    const {comm_desc,author,post_id} = req.query;
+    const CREATE_COMMENT = "insert into comments(comm_desc,author,post_id) values('"+comm_desc+"','"+ author +"','"+post_id +"');";
+    connection.query(CREATE_COMMENT,(err,results) => {
+        if(err){
+            res.status = 201;
+            res.end();
+        }
+        else{
+            res.status =200;
+            res.end();
+        }
+    })
+})
+
 //get apis end here
 
 
