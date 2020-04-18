@@ -143,7 +143,6 @@ CREATE TABLE `votes` (
   PRIMARY KEY (`vote_id`),
   UNIQUE KEY `author` (`author`),
   KEY `post_id` (`post_id`),
-  CONSTRAINT `votes_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`username`),
   CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -166,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-18 20:06:43
+-- Dump completed on 2020-04-18 20:15:59
